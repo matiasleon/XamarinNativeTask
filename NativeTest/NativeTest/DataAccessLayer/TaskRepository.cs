@@ -24,5 +24,10 @@ namespace NativeTest.DataAccessLayer
         {
             return await this.database.GetAll();
         }
+
+        public async System.Threading.Tasks.Task Save(BusinessLayer.Task task)
+        {
+            await this.database.Save(task);
+        }
     }
 }

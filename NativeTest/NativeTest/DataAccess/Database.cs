@@ -14,10 +14,10 @@ namespace NativeTest.DataAccess
         public Database(string databasepath, ISQLitePlatform sQLitePlataform)
         {
             this.connection = SQLiteConnectionDatabase.GetConnection(databasepath, sQLitePlataform);
-            this.CreateTable();
+            //await this.CreateTable();
         }
 
-        private async void  CreateTable()
+        private async System.Threading.Tasks.Task CreateTable()
         {
             await this.connection.CreateTableAsync<BusinessLayer.Task>();
         }

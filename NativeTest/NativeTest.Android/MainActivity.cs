@@ -24,7 +24,7 @@ namespace NativeTest.Droid
 
         private ListView tasksListView;
 
-        protected override async void OnCreate (Bundle bundle)
+        protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
@@ -34,20 +34,26 @@ namespace NativeTest.Droid
             SetActionBar(toolbar);
 		    ActionBar.Title = "Tareas";
 
-            // obtengo tareas
-            await this.SetTasks();
-
             // Fullfil de adapte mas item click
             tasksListView = FindViewById<ListView>(Resource.Id.TaskList);
-           
-            var taskAdapter = new TaskListAdapter(this, tasks);
-            tasksListView.Adapter = taskAdapter;
-		    tasksListView.Clickable = true;
-            tasksListView.ItemClick += TasksListViewOnItemClick;
-		    
+            tasksListView.ItemClick += TasksListView_ItemClick;
 		}
 
-	    public override bool OnCreateOptionsMenu(IMenu menu)
+        private void TasksListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var taskDetailPageIntent = new Intent(this, typeof(TaskDetailPage));
+            StartActivity(taskDetailPageIntent);
+        }
+
+        protected override async void OnResume()
+        {
+            base.OnResume();
+            await this.SetTasks();
+            var taskAdapter = new TaskListAdapter(this, tasks); //notify change
+            tasksListView.Adapter = taskAdapter;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
 	    {
             MenuInflater.Inflate(Resource.Menu.Top_Menus, menu);
 	        return base.OnCreateOptionsMenu(menu);
@@ -61,12 +67,6 @@ namespace NativeTest.Droid
 	        }
 	            
 	        return base.OnOptionsItemSelected(item);
-	    }
-
-	    private void TasksListViewOnItemClick(object sender, AdapterView.ItemClickEventArgs itemClickEventArgs)
-	    {
-	        var taskDetailPageIntent = new Intent(this, typeof(TaskDetailPage));
-	        StartActivity(taskDetailPageIntent);
 	    }
 
         private async System.Threading.Tasks.Task SetTasks()
@@ -88,5 +88,3 @@ namespace NativeTest.Droid
         }
     }
 }
-
-

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Adapters\TaskListAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\pages\Datepicker\DatePickerFragment.cs" />
     <Compile Include="Resources\pages\NewTaskPage.cs" />
     <Compile Include="Resources\pages\TaskDetailPage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -170,6 +171,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\Top_Menus.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_date_range_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_date_range_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_date_range_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_date_range_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_date_range_black_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

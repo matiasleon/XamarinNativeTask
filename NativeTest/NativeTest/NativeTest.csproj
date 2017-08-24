@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\IRepository\ITaskRepository.cs" />
+    <Compile Include="BusinessLayer\Tasks\Generators\TaskGenearator.cs" />
     <Compile Include="BusinessLayer\Tasks\Searchers\TaskSearcher.cs" />
     <Compile Include="BusinessLayer\Tasks\Task.cs" />
     <Compile Include="BusinessLayer\Tasks\Factories\TaskFactory.cs" />

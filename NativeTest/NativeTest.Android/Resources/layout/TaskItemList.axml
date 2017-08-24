@@ -9,7 +9,8 @@
         p1:orientation="horizontal"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/linearLayout1">
+        p1:id="@+id/linearLayout1"
+        p1:clickable="true">
         <ImageView
             p1:src="@android:drawable/ic_menu_gallery"
             p1:layout_width="wrap_content"
@@ -38,10 +39,9 @@
                 p1:layout_height="match_parent"
                 p1:layout_marginRight="30.5dp" />
         </LinearLayout>
-        <Switch
+        <CheckBox
             p1:layout_width="wrap_content"
             p1:layout_height="match_parent"
-            p1:id="@+id/switch1"
-            p1:layout_marginLeft="10dp" />
+            p1:id="@+id/TaskStatus" />
     </LinearLayout>
 </RelativeLayout>
