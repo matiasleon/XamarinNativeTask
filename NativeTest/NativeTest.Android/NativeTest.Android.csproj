@@ -56,7 +56,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\SearchTasksAdapter.cs" />
     <Compile Include="Adapters\TaskListAdapter.cs" />
+    <Compile Include="Listeners\CheckedChangeListener.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\pages\Datepicker\DatePickerFragment.cs" />
     <Compile Include="Resources\pages\NewTaskPage.cs" />
@@ -84,6 +86,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\style.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SearchTaskItemList.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

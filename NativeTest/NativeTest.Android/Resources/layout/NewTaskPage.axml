@@ -8,12 +8,19 @@
     <include
         android:id="@+id/ToolbarTask2"
         layout="@layout/toolbar" />
+  <AutoCompleteTextView
+        android:id="@+id/NewTaskAsociateTask"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="Busque tarea asociada"
+        android:layout_marginBottom="20dp"/>
     <TextView
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
-  <EditText
+    <EditText
         android:layout_marginLeft="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -21,7 +28,7 @@
         android:id="@+id/NewTaskName"
         android:hint="Nombre"
         android:layout_marginBottom="20dp" />
-  <EditText
+    <EditText
         android:layout_marginLeft="10dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -29,23 +36,25 @@
         android:id="@+id/NewTaskDescription"
         android:hint="Descripcion"
         android:layout_marginBottom="20dp" />
-  <LinearLayout
+    <LinearLayout
         android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
-        <TextView
-            android:text="Medium Text"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/NewTaskDatetime" />
-        <ImageButton
+        android:id="@+id/linearLayout1"
+        android:layout_marginBottom="20dp">
+        <ImageView
             android:src="@drawable/ic_date_range_black_24dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/DatetimePickerButton" />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:hint="Fecha de aviso"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/NewTaskDatetime" />
     </LinearLayout>
     <Button
         android:text="Crear"

@@ -4,6 +4,7 @@ using Android.Widget;
 using NativeTest.BusinessLayer;
 using System.Collections.Generic;
 using Android.App;
+using NativeTest.Droid.Listeners;
 
 namespace NativeTest.Droid.Adapters
 {
@@ -46,6 +47,9 @@ namespace NativeTest.Droid.Adapters
             var item = this.taskList[position];
             var view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.TaskItemList, null);
             view.FindViewById<TextView>(Resource.Id.TaskName).Text = item.Name;
+            var checkbox = view.FindViewById<CheckBox>(Resource.Id.TaskStatus);
+            checkbox.SetOnCheckedChangeListener(null);
+            checkbox.SetOnCheckedChangeListener(new CheckedChangeListener(context));
 
             return view;
         }

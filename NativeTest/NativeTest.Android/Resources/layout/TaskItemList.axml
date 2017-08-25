@@ -10,7 +10,7 @@
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/linearLayout1"
-        p1:clickable="true">
+        p1:descendantFocusability="blocksDescendants">
         <ImageView
             p1:src="@android:drawable/ic_menu_gallery"
             p1:layout_width="wrap_content"
@@ -42,6 +42,8 @@
         <CheckBox
             p1:layout_width="wrap_content"
             p1:layout_height="match_parent"
-            p1:id="@+id/TaskStatus" />
+            p1:id="@+id/TaskStatus"
+            p1:focusable="true"
+            p1:focusableInTouchMode="true"/>
     </LinearLayout>
 </RelativeLayout>

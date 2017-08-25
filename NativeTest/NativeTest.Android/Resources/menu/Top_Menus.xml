@@ -14,4 +14,10 @@
     android:id="@+id/menu_preferences"
     android:showAsAction="never"
     android:title="Preferences" />
+  <item >
+     <AutoCompleteTextView android:id="@+id/autocomplete_country"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"/>
+  </item>
 </menu>
