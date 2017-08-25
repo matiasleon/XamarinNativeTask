@@ -51,5 +51,7 @@ namespace NativeTest.Droid.Adapters
 
             return view;
         }
+
+        public override Filter Filter => base.Filter;
     }
 }

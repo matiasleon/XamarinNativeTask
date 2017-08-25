@@ -54,7 +54,8 @@ namespace NativeTest.Droid.Resources.pages
             // autocomplete 
             var autocompleteTextView = FindViewById<AutoCompleteTextView>(Resource.Id.NewTaskAsociateTask);
             this.tasks = await this.repository.GetAll();
-            autocompleteTextView.Adapter = new SearchTasksAdapter(this, Resource.Id.SuggestedTaskName, this.tasks);
+            var adapter = new ArrayAdapter<Task>(this, Resource.Id.SuggestedTaskName, this.tasks);
+
             autocompleteTextView.ItemSelected += AutocompleteTextView_ItemSelected;
         }
 
