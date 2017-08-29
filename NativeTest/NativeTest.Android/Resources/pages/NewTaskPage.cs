@@ -54,8 +54,8 @@ namespace NativeTest.Droid.Resources.pages
             // autocomplete 
             var autocompleteTextView = FindViewById<AutoCompleteTextView>(Resource.Id.NewTaskAsociateTask);
             this.tasks = await this.repository.GetAll();
-            var adapter = new ArrayAdapter<Task>(this, Resource.Id.SuggestedTaskName, this.tasks);
-
+            var adapter = new SearchTasksAdapter(this, Resource.Layout.SearchTaskItemList, this.tasks);
+            autocompleteTextView.Adapter = adapter;
             autocompleteTextView.ItemSelected += AutocompleteTextView_ItemSelected;
         }
 
@@ -80,7 +80,7 @@ namespace NativeTest.Droid.Resources.pages
             var description = FindViewById<EditText>(Resource.Id.NewTaskDescription).Text;
 
             // Esta logica deberia estar en el negocio
-            var newTask = new BusinessLayer.Task() { Name = name, Description = description };
+            var newTask = new Task() { Name = name, Description = description };
             await this.repository.Save(newTask);
             // fin de negocio
 

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Adapters\SearchTasksAdapter.cs" />
     <Compile Include="Adapters\TaskListAdapter.cs" />
+    <Compile Include="Filters\SearchTaskFilter.cs" />
     <Compile Include="Listeners\CheckedChangeListener.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\pages\Datepicker\DatePickerFragment.cs" />

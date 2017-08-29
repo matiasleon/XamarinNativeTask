@@ -14,7 +14,7 @@ namespace NativeTest.DataAccess
         public Database(string databasepath, ISQLitePlatform sQLitePlataform)
         {
             this.connection = SQLiteConnectionDatabase.GetConnection(databasepath, sQLitePlataform);
-            //await this.CreateTable();
+            this.CreateTable();
         }
 
         private async System.Threading.Tasks.Task CreateTable()

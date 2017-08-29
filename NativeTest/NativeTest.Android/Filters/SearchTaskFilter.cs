@@ -11,13 +11,15 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using NativeTest.BusinessLayer;
+using NativeTest.Droid.Adapters;
 
 namespace NativeTest.Droid.Filters
 {
     public class SearchTaskFilter: Filter
     {
+        public SearchTasksAdapter adapter;
 
-        private IList<Task> originalData;
+        public IList<Task> originalData;
 
         public SearchTaskFilter(IList<Task> originalData)
         {
@@ -45,7 +47,15 @@ namespace NativeTest.Droid.Filters
 
         protected override void PublishResults(ICharSequence constraint, FilterResults results)
         {
-            throw new NotImplementedException();
+            if (results.Count == 0)
+            {
+                adapter.NotifyDataSetInvalidated();
+            }
+            else
+            {
+                
+                adapter.NotifyDataSetChanged();
+            }
         }
     }
 }

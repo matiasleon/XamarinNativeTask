@@ -11,12 +11,13 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using NativeTest.BusinessLayer;
+using NativeTest.Droid.Filters;
 
 namespace NativeTest.Droid.Adapters
 {
-    public class SearchTasksAdapter : ArrayAdapter<Task>, IFilterable
+    public class SearchTasksAdapter : ArrayAdapter<Task>
     {
-        private readonly IList<Task> taskList;
+        public readonly IList<Task> taskList;
 
         private readonly int textViewResourceId;
 
@@ -29,29 +30,25 @@ namespace NativeTest.Droid.Adapters
             this.context = context;
         }
 
-        public override int Count
-        {
-            get
-            {
-                return this.taskList.Count;
-            }
-        }
-
-        public override long GetItemId(int position)
-        {
-            return position;
-        }
-
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var item = this.taskList[position];
             var layoutService = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
-            var view = convertView ?? layoutService.Inflate(Resource.Id.SuggestedTaskName, null);
+            var view = convertView ?? layoutService.Inflate(textViewResourceId, null);
             view.FindViewById<TextView>(Resource.Id.SuggestedTaskName).Text = item.Name;
 
             return view;
         }
 
-        public override Filter Filter => base.Filter;
+        public override Filter Filter
+        {
+            get
+            {
+                return new SearchTaskFilter(this.taskList)
+                {
+                    adapter = this
+                };
+            }
+        }
     }
 }
